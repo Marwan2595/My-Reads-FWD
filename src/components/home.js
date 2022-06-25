@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Shelf from "./shelf";
-import * as BooksAPI from "../BooksAPI";
 import { BooksList } from "./booksContext";
 
 function Home() {

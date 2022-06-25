@@ -1,16 +1,18 @@
 import BookStatusList from "./bookStatusList";
 import PropTypes from 'prop-types';
-
+import { Link } from "react-router-dom";
 
 
 function Book(props) {
 
 
-    let image = props.bookOBJ.imageLinks != null && props.bookOBJ.imageLinks != undefined ? props.bookOBJ.imageLinks.thumbnail : "";
+    let image = props.bookOBJ.imageLinks !== null && props.bookOBJ.imageLinks !== undefined ? props.bookOBJ.imageLinks.thumbnail : "";
     return (<>
         <div className="book">
             <div className="book-top">
-                <div
+
+                <Link
+                    to={`/book/${props.bookOBJ.id}`}
                     className="book-cover"
                     style={{
                         width: 128,
@@ -18,7 +20,9 @@ function Book(props) {
                         backgroundImage:
                             'url(' + image + ')',
                     }}
-                ></div>
+                >
+
+                </Link>
                 <BookStatusList bookOBJ={props.bookOBJ} />
             </div>
             <div className="book-title">{props.bookOBJ.title}</div>

@@ -10,7 +10,7 @@ function BookStatusList(props) {
         BooksAPI.get(props.bookOBJ.id).then((book) => {
             setBookState(book.shelf);
         });
-    }, []);
+    }, [props.bookOBJ.id]);
     const changeBookShelf = (event) => {
         let newBookStatus = event.target.value;
         BooksAPI.update(props.bookOBJ, newBookStatus).then((b) => {
@@ -22,8 +22,8 @@ function BookStatusList(props) {
     }
     return (<>
         <div  className="book-shelf-changer">
-            <select on onChange={changeBookShelf} value={bookState}>
-                <option value="none" disabled>
+            <select  onChange={changeBookShelf} value={bookState}>
+                <option  disabled>
                     Move to...
                 </option>
                 <option value="currentlyReading">

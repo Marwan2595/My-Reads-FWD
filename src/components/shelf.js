@@ -10,10 +10,12 @@ function Shelf(props) {
             <div className="bookshelf-books">
                 <ol className="books-grid">
                     {books.map((book) => {
-                        if (book.shelf == props.shelfName) {
+                        if (book.shelf === props.shelfName) {
                             return <li key={book.id}>
                                 <Book changeBookShelf={props.changeBookShelf} bookOBJ={book} />
                             </li>
+                        }else {
+                          return [];
                         }
                     })}
 

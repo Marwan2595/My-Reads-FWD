@@ -11,7 +11,7 @@ function Search() {
     const [searchBooks, setSearchBooks] = useState([]);
     useEffect(() => {
         //console.log(searchQuery);
-        if (searchQuery != '') {
+        if (searchQuery !== '') {
             BooksAPI.search(searchQuery, 15).then((books) => {
                 if (Array.isArray(books)) {
                     setSearchBooks(books);
@@ -24,7 +24,7 @@ function Search() {
         }
     }, [searchQuery]);
     function searchBody() {
-        if (searchBooks.length == 0 || searchBooks == 'undefined' || !Array.isArray(searchBooks)) {
+        if (searchBooks.length === 0 || searchBooks === 'undefined' || !Array.isArray(searchBooks)) {
             return <h1 style={{marginTop:200 , fontSize : 50}}>No Books</h1>
         } else {
             return searchBooks.map((book) => {
